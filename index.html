@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
+    <meta name="google-adsense-account" content="ca-pub-4756703747572565">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel Tamagotchi - 熊仔</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Pixel丸之内">
+    <link rel="apple-touch-icon" href="192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+    <title>Pixel丸之内</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -70,24 +79,25 @@
     </style>
 </head>
 <body>
-    <h1>Pixel Tamagotchi - 熊仔</h1>
+    <h1>Pixel丸之内</h1>
+    <h6>注意事項はウェブページの下部にあります。</h6>
     <div id="pixel-pet" class="pixel-container"></div>
     <div>
-        <button onclick="feedPet()">餵食</button>
-        <button onclick="playWithPet()">陪玩</button>
-        <button onclick="cleanPet()">清潔</button>
-        <button onclick="restartGame()">重新開始</button>
-        <input id="save-input" type="text" placeholder="輸入儲存代碼">
-        <button onclick="saveGame()">儲存遊戲</button>
-        <button onclick="loadGame()">載入存檔</button>
+        <button onclick="feedPet()">餌を与える</button>
+        <button onclick="playWithPet()">遊ぶ</button>
+        <button onclick="cleanPet()">掃除する</button>
+        <button onclick="restartGame()">再スタート</button>
+        <input id="save-input" type="text" placeholder="保存コードを入力">
+        <button onclick="saveGame()">ゲームを保存</button>
+        <button onclick="loadGame()">保存を読み込む</button>
     </div>
     <div class="status-container">
-        <div>肚餓：<div class="status-bar"><div id="hunger-bar" class="status-bar-inner"></div></div></div>
-        <div>廁所：<div class="status-bar"><div id="toilet-bar" class="status-bar-inner"></div></div></div>
-        <div>悶：<div class="status-bar"><div id="boredom-bar" class="status-bar-inner"></div></div></div>
+        <div>空腹：<div class="status-bar"><div id="hunger-bar" class="status-bar-inner"></div></div></div>
+        <div>トイレ：<div class="status-bar"><div id="toilet-bar" class="status-bar-inner"></div></div></div>
+        <div>退屈：<div class="status-bar"><div id="boredom-bar" class="status-bar-inner"></div></div></div>
     </div>
-    <div class="time-indicator" id="time-indicator">現在時間：00:00</div>
-    <div class="age-indicator" id="age-indicator">飼養日數：0 日</div>
+    <div class="time-indicator" id="time-indicator">現在の時間：00:00</div>
+    <div class="age-indicator" id="age-indicator">飼育日数：0 日</div>
     <script>
         const pixelPet = document.getElementById("pixel-pet");
         const hungerBar = document.getElementById("hunger-bar");
@@ -111,37 +121,37 @@
                 [
                     "..........",
                     "...####...",
-                    "..######..",
-                    "..#....#..",
-                    "..#.O..#..",
-                    "..######..",
+                    "..##...#..",
+                    "..#.....#.",
+                    ".#..O.O.#.",
+                    ".#..#.#.#.",
+                    "..#..#.#..",
                     "...#..#...",
-                    "...####...",
-                    "..........",
+                    "....##....",
                     ".........."
                 ],
                 [
-                    "..........",
+                   "..........",
                     "...####...",
-                    "..######..",
-                    "..#....#..",
-                    "..#..O.#..",
-                    "..######..",
+                    "..#...##..",
+                    "..#.....#.",
+                    ".#.O.O..#.",
+                    ".#.#.#..#.",
+                    "..#.#..#..",
                     "...#..#...",
-                    "...####...",
-                    "..........",
+                    "....##....",
                     ".........."
                 ],
                 [
-                    "..........",
+                   "..........",
                     "...####...",
                     "..######..",
-                    "..#....#..",
-                    "..#.O..#..",
-                    "..######..",
+                    "..#.....#.",
+                    ".#..O.O.#.",
+                    ".#..#.#.#.",
+                    "..#..#.#..",
                     "...#..#...",
-                    "...####...",
-                    "..........",
+                    "....##....",
                     ".........."
                 ]
             ],
@@ -149,37 +159,37 @@
                 [
                     "..........",
                     "...####...",
-                    "..######..",
-                    "..#....#..",
-                    "..#.O..#..",
-                    "..######..",
-                    "....#....#",
-                    "...######.",
-                    "..........",
+                    "..##...#..",
+                    "..#.....#.",
+                    ".#..O.O.#.",
+                    ".#......#.",
+                    "..#..##.#.",
+                    "...#...#..",
+                    "....###...",
                     ".........."
                 ],
                 [
                     "..........",
                     "...####...",
-                    "..######..",
-                    "..#....#..",
-                    "..#..O.#..",
-                    "..######..",
-                    "....#....#",
-                    "...######.",
-                    "..........",
+                    "..##...#..",
+                    "..#.....#.",
+                    ".#.O.O..#.",
+                    ".#......#.",
+                    "..#.#..#..",
+                    "...#..#...",
+                    "....##....",
                     ".........."
                 ],
                 [
                     "..........",
                     "...####...",
-                    "..######..",
-                    "..#....#..",
-                    "..#..O.#..",
-                    "..######..",
-                    "...#....#.",
-                    "...######.",
-                    "..........",
+                    "..##...#..",
+                    "..#.....#.",
+                    ".#..O.O.#.",
+                    ".#......#.",
+                    "..#..##.#.",
+                    "...#...#..",
+                    "....###...",
                     ".........."
                 ]
             ],
@@ -187,76 +197,114 @@
                 [
                     "..........",
                     "...####...",
-                    "..######..",
+                    "..##...#..",
+                    "..#.P.P.#.",
+                    ".#......#.",
+                    ".#...#..#.",
                     "..#....#..",
-                    "..#.P..#..",
-                    "..######..",
-                    "...######.",
-                    "...######.",
-                    "..........",
-                    ".........."
+                    "...####.#.",
+                    ".......###",
+                    "......####"
                 ],
                 [
                     "..........",
                     "...####...",
-                    "..######..",
+                    "..##...#..",
+                    "..#P.P..#.",
+                    ".#......#.",
+                    ".#..#...#.",
                     "..#....#..",
-                    "..#.P..#..",
-                    "..######..",
-                    "....#####.",
-                    "...######.",
-                    "..........",
-                    ".........."
+                    "...####.#.",
+                    ".......###",
+                    "......####"
                 ],
                 [
                     "..........",
                     "...####...",
-                    "..######..",
+                    "..##...#..",
+                    "..#.P.P.#.",
+                    ".#......#.",
+                    ".#...#..#.",
                     "..#....#..",
-                    "..#.P..#..",
-                    "..######..",
-                    "....#####.",
-                    "...######.",
-                    "..........",
-                    ".........."
+                    "...####.#.",
+                    ".......###",
+                    "......####"
                 ]
             ],
             sleeping: [
                 [
                     "..........",
-                    "...####...",
-                    "..######..",
-                    "..#....#..",
-                    "..#....#..",
-                    "..######..",
                     "....####..",
+                    "......#...",
+                    ".....#....",
                     "....####..",
-                    "..........",
-                    ".........."
+                    "..###.....",
+                    ".#...#....",
+                    ".#...#....",
+                    ".#.#.#....",
+                    "..###....."
                 ],
                 [
                     "..........",
-                    "...####...",
-                    "..######..",
-                    "..#....#..",
-                    "..#....#..",
-                    "..######..",
-                    "....####..",
-                    "....####..",
-                    "..........",
-                    ".........."
+                    ".....####.",
+                    ".......#..",
+                    "......#...",
+                    ".....####.",
+                    "..###.....",
+                    ".#...#....",
+                    ".#...#....",
+                    ".#...#....",
+                    "..###....."
                 ],
                 [
                     "..........",
-                    "...####...",
-                    "..######..",
-                    "..#....#..",
-                    "..#....#..",
-                    "..######..",
                     "....####..",
+                    "......#...",
+                    ".....#....",
                     "....####..",
+                    "..###.....",
+                    ".#...#....",
+                    ".#...#....",
+                    ".#.#.#....",
+                    "..###....."
+                ]
+            ],
+            dead: [
+                [
                     "..........",
-                    ".........."
+                    ".....#....",
+                    ".....#....",
+                    ".....#....",
+                    "...#####..",
+                    ".....#....",
+                    ".....#....",
+                    "...#####..",
+                    "..#######.",
+                    "..#######."
+                ],
+                [
+                    "..........",
+                    ".....#....",
+                    ".....#....",
+                    ".....#....",
+                    "...#####..",
+                    ".....#....",
+                    ".....#....",
+                    "...#####..",
+                    "..#######.",
+                    "..#######."
+                ],
+                [
+                    "..........",
+                    ".....#....",
+                    ".....#....",
+                    ".....#....",
+                    "...#####..",
+                    ".....#....",
+                    ".....#....",
+                    "...#####..",
+                    "..#######.",
+                    "..#######."
                 ]
             ]
         };
@@ -291,14 +339,17 @@
 
         function updateState() {
             const hours = new Date().getHours();
-            if (hours >= 21 || hours < 8) {
+            dead = false;
+            if(hunger >= 450 || toilet >= 450|| boredom >= 550){
+                currentState = "dead";
+            }else if (hours >= 21 || hours < 8) {
                 currentState = "sleeping";
                 isSleeping = true;
             } else {
                 isSleeping = false;
-                if (hunger >= 80) {
+                if (hunger >= 60){
                     currentState = "hungry";
-                } else if (toilet >= 80) {
+                } else if (toilet >= 60) {
                     currentState = "toilet";
                 } else {
                     currentState = "idle";
@@ -311,8 +362,8 @@
             const hours = now.getHours().toString().padStart(2, '0');
             const minutes = now.getMinutes().toString().padStart(2, '0');
             const elapsedDays = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
-            timeIndicator.textContent = `現在時間：${hours}:${minutes}`;
-            ageIndicator.textContent = `飼養日數：${elapsedDays} 日`;
+            timeIndicator.textContent = `現在の時間：${hours}:${minutes}`;
+            ageIndicator.textContent = `飼育日数：${elapsedDays} 日`;
 
             // Check if it's sleeping time
             if (hours >= 21 || hours < 8) {
@@ -322,31 +373,43 @@
             }
         }
 
-        function saveGame() {
-            const saveData = {
-                hunger,
-                toilet,
-                boredom,
-                startDate,
-                isSleeping
-            };
-            saveInput.value = btoa(JSON.stringify(saveData));
-        }
+function saveGame() {
+    const saveData = {
+        hunger,
+        toilet,
+        boredom,
+        startDate: startDate.toISOString(), // 起始日期
+        saveDate: new Date().toISOString(), // 當前儲存時間
+        isSleeping
+    };
+    saveInput.value = btoa(JSON.stringify(saveData)); // 將數據編碼為 Base64
+}
 
-        function loadGame() {
-            try {
-                const saveData = JSON.parse(atob(saveInput.value));
-                hunger = saveData.hunger;
-                toilet = saveData.toilet;
-                boredom = saveData.boredom;
-                startDate = new Date(saveData.startDate);
-                isSleeping = saveData.isSleeping;
-                updateAnimation();
-                updateRealTime();
-            } catch {
-                alert("無效的存檔代碼");
-            }
-        }
+function loadGame() {
+    try {
+        const saveData = JSON.parse(atob(saveInput.value)); // 解碼存檔數據
+        const savedDate = new Date(saveData.saveDate); // 儲存時間
+        const now = new Date(); // 當前時間
+        const elapsedMinutes = Math.floor((now - savedDate) / (1000 * 60)); // 計算分鐘差距
+
+        // 更新狀態值，根據時間差距增加數值
+        hunger = Math.min(450, saveData.hunger + elapsedMinutes * (5 / 10)); // 每天增加5，換算到每分鐘增加5/1440
+        toilet = Math.min(450, saveData.toilet + elapsedMinutes * (4 / 10)); // 每天增加4，換算到每分鐘增加4/1440
+        boredom = Math.min(550, saveData.boredom + elapsedMinutes * (6 / 10)); // 每天增加6，換算到每分鐘增加6/1440
+
+        startDate = new Date(saveData.startDate); // 恢復存檔的起始日期
+        isSleeping = saveData.isSleeping; // 恢復睡眠狀態
+
+        updateAnimation(); // 更新畫面動畫
+        updateRealTime(); // 更新時間顯示
+        updateStatusBars(); // 更新狀態條
+
+        alert(`ゲームがロードされました。${elapsedMinutes} 分が経過しました！`); // 顯示載入資訊
+    } catch {
+        alert("無効なセーブコードです。");
+    }
+}
+
 
         function updateStatusBars() {
             hungerBar.style.width = hunger + "%";
@@ -380,9 +443,9 @@
         setInterval(() => {
             if (!dead) {
                 updateRealTime();
-                let hungerSpeed = isSleeping ? 0.2 : 1;
-                let toiletSpeed = isSleeping ? 0.1 : 0.5;
-                let boredomSpeed = isSleeping ? 0.1 : 0.5;
+                let hungerSpeed = isSleeping ? 0.03 : 0.09; //0.09
+                let toiletSpeed = isSleeping ? 0.03 : 0.09; //0.09
+                let boredomSpeed = isSleeping ? 0 : 0.07; //0.07
 
                 hunger += hungerSpeed;
                 toilet += toiletSpeed;
@@ -392,9 +455,10 @@
                 updateAnimation();
                 updateStatusBars();
 
-                if (hunger >= 100 || toilet >= 100 || boredom >= 100) {
+                if (hunger >= 450 || toilet >= 450 || boredom >= 550) {
                     dead = true;
-                    alert("熊仔死了");
+                    currentState = "dead";
+                    alert("丸之内が死にました。");
                 }
             }
         }, isSleeping ? 500 : 1000); // Sleep state updates twice per second, otherwise once per second
@@ -404,5 +468,11 @@
         updateStatusBars();
         updateRealTime();
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4756703747572565"
+     crossorigin="anonymous"></script>
+    <h5>注意：</h5>
+    <h5>1.iOSのホーム画面にウェブページを追加すると、フルスクリーン表示が可能です。</h5>
+    <h5>2.ゲームを保存する際には、文字列をコピーする必要があります。すべての文字が選択されているか確認してください。</h5>
+    <h6>v52</h6>
 </body>
 </html>
